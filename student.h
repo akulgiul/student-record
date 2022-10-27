@@ -17,13 +17,13 @@ typedef struct {
 	Degree degree;
 	Course course;
 	int semester;
+
+	// simple getters
+	int (*get_id)(void *self);
+	char (*get_name)(void *self);
+	char (*get_surname)(void *self);
+	Degree (*get_degree)(void *self);
+	Course (*get_course)(void *self);
+	int (*get_semester)(void *self);
+
 } Student;
-
-// simple getters
-
-int get_id(Student *student) { return student->student_id; }
-char *get_name(Student *student) { return student->name; }
-char *get_surname(Student *student) { return student->surname; }
-Degree get_degree(Student *student) { return student->degree; }
-Course get_course(Student *student) { return student->course; }
-int get_semester(Student *student) { return student->semester; }
