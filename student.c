@@ -11,9 +11,11 @@
 #include "student.h"
 #include <stdio.h>
 
-static void student_init(Student *student) {
-	student->get_id = &get_id;
-}
 
 static int get_id() {
+	return 0;
+}
+
+static void student_init(Student *student) {
+	student->get_id = &get_id;
 }

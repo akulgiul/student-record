@@ -7,13 +7,15 @@
  * Copyright (c) 2022 luka luig
  *
  */
+#ifndef COURSE_H
+#define COURSE_H
 
-enum Degree {
+typedef enum {
 	Bachelor,
 	Master
-};
+} Degree;
 
-enum Course {
+typedef enum {
 	Art,
 	Biology,
 	Chemistry,
@@ -27,4 +29,6 @@ enum Course {
 	Philosophy,
 	Physics,
 	Psychology
-};
+} Course;
+
+#endif

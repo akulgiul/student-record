@@ -7,3 +7,7 @@
  * Copyright (c) 2022 luka luig
  * 
  */
+
+int main(void){
+	return 0;
+}

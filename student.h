@@ -8,6 +8,9 @@
  *
  */
 
+#ifndef STUDENT_H
+#define STUDENT_H
+
 #include "course.h"
 
 typedef struct {
@@ -33,6 +36,9 @@ typedef struct {
 	void (*set_course)(void *self, char *new_course);
 	void (*set_semester)(void *self, char *new_semester);
 
+	// increment semester 
 	void (*next_semester)(void *self);
 
 } Student;
+
+#endif
