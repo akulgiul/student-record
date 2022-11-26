@@ -13,32 +13,17 @@
 
 #include "course.h"
 
-typedef struct {
-	unsigned int student_id;
-	char *name;
-	char *surname;
-	Degree degree;
-	Course course;
-	int semester;
+// incomplete type => encapsulation of attributes
+typedef struct Student Student;
 
-	// simple getters
-	int (*get_id)(void *self);
-	char (*get_name)(void *self);
-	char (*get_surname)(void *self);
-	Degree (*get_degree)(void *self);
-	Course (*get_course)(void *self);
-	int (*get_semester)(void *self);
+// constructer
+Student *student_init();
 
-	// simple setters
-	void (*set_name)(void *self, char *new_name);
-	void (*set_surname)(void *self, char *new_surname);
-	void (*set_degree)(void *self, Degree new_degree);
-	void (*set_course)(void *self, char *new_course);
-	void (*set_semester)(void *self, char *new_semester);
+// deconstructor
+void student_destroy(Student *student);
 
-	// increment semester 
-	void (*next_semester)(void *self);
+void student_set_id(Student *student, int ID);
 
-} Student;
+int student_get_id(Student *student); 
 
 #endif

@@ -10,12 +10,30 @@
 
 #include "student.h"
 #include <stdio.h>
+#include <stdlib.h>
 
+struct Student {
+	unsigned int student_id;
+	char *name;
+	char *surname;
+	Degree degree;
+	Course course;
+	int semester;
+};
 
-static int get_id() {
-	return 0;
+Student *student_init() {
+	Student *student = malloc(sizeof(Student));
+	return student;
 }
 
-static void student_init(Student *student) {
-	student->get_id = &get_id;
+void student_destroy(Student *student) {
+	free(student);
+}
+
+void student_set_id(Student *student, int ID){
+	student->student_id = ID;
+}
+
+int student_get_id(Student *student){
+	return student->student_id;
 }
