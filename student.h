@@ -22,8 +22,10 @@ Student *student_init();
 // deconstructor
 void student_destroy(Student *student);
 
+//simple setters
 void student_set_id(Student *student, int ID);
 
+//simple getters
 int student_get_id(Student *student); 
 
 #endif
