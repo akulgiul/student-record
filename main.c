@@ -13,8 +13,12 @@
 
 int main(void) {
 	Student *luka = student_init();
-	student_set_id(luka, 99);
-	int id = student_get_id(luka);
-	printf("%d", id);
+
+	printf("%s\n", get_name(luka));
+	printf("%zu\n", get_id(luka));
+	printf("%s\n", string_degree(get_degree(luka)));
+	printf("%s\n", string_course(get_course(luka)));
+	printf("%zu\n", get_semester(luka));	
 	student_destroy(luka);
+
 }

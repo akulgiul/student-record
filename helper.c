@@ -8,30 +8,35 @@
  *
  */
 
+#include "helper.h"
 #include <limits.h>
 #include <stdio.h>
-#include "helper.h"
 
 // user input for int in given range (including min and max)
-int input_int_range(int min, int max, char attribute[]) {
+int input_int_range(int min, int max, int cancel, char attribute[]) {
 	// make sure min < max
-	if(max > min){
+	if (max < min) {
 		int tmp = min;
 		min = max;
 		max = tmp;
 	}
 	int input = INT_MIN;
 	while (1) {
-		printf("%s\nPlease enter an integer from %d to %d: ", attribute, min, max);
+		printf("Students %s, Please enter an integer from %d to %d: ", attribute, min, max);
 		scanf("%d", &input);
 		if (input >= min && input <= max)
 			return input;
+		if (input == cancel)
+			return cancel;
 		else
 			printf("Sorry! Integer entered is not in range.\n");
 	}
 }
 
 // user input for string
-char *input_string(char attribute[]){
-	return "";
+char *input_string(char attribute[]) {
+	char *string = "";
+	printf("\nPlease enter %s of student: ", attribute);
+	scanf("%s", &string);
+	return string;
 }

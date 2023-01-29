@@ -12,7 +12,8 @@
 
 typedef enum {
 	Bachelor,
-	Master
+	Master,
+	NaD // Not a Degree
 } Degree;
 
 typedef enum {
@@ -28,7 +29,15 @@ typedef enum {
 	Medicine,
 	Philosophy,
 	Physics,
-	Psychology
+	Psychology,
+	NaC // Not a Course
 } Course;
+
+static const Course course_map[] = {Art,		Biology,	   Chemistry,  CS,			Engineering,
+									History,	Int_Relations, Law,		   Mathematics, Medicine,
+									Philosophy, Physics,	   Psychology, NaC};
+
+char *string_degree(Degree degree);
+char *string_course(Course course);
 
 #endif

@@ -9,70 +9,81 @@
  */
 
 #include "student.h"
+#include "course.h"
+#include "helper.h"
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 struct Student {
-	unsigned int student_id;
+	size_t id;
 	char *name;
 	char *surname;
 	Degree degree;
 	Course course;
-	int semester;
+	size_t semester;
 };
 
 // constructor
 Student *student_init() {
 	Student *student = malloc(sizeof(Student));
+	student->name = input_string("name");
+	student->surname = input_string("surname");
+	student->degree = which_degree();
+	student->course = which_course();
+	student->semester = input_int_range(1, 20, 0, "semester");
 	return student;
 }
 
 // deconstructor
-void student_destroy(Student *student) {
-	free(student);
-}
+void student_destroy(Student *student) { free(student); }
 
 // simple setters
-void student_set_id(Student *student, int ID) {
-	student->student_id = ID;
-}
-
-void student_set_name(Student *student, char n_name[]) {
-}
-
-void student_set_surname(Student *student, char n_name[]) {
-}
-
-void student_set_degree(Student *student, Degree n_degree) {
-}
-
-void student_set_course(Student *student, Course n_course) {
-}
-
-void student_set_semester(Student *student, int n_semester) {
-}
+void set_id(Student *student, int ID) { student->id = ID; }
+void set_name(Student *student, char n_name[]) { student->name = n_name; }
+void set_surname(Student *student, char n_surname[]) { student->surname = n_surname; }
+void set_degree(Student *student, Degree n_degree) { student->degree = n_degree; }
+void set_course(Student *student, Course n_course) { student->course = n_course; }
+void set_semester(Student *student, size_t n_semester) { student->semester = n_semester; }
 
 // simple getters
-int student_get_id(Student *student) {
-	return student->student_id;
-}
+size_t get_id(Student *student) { return student->id; }
 
-char *student_get_name(Student *student) {
+char *get_name(Student *student) {
+	// WTF does this not work, i get segfaulted
 	return student->name;
 }
 
-char *student_get_surname(Student *student) {
-	return student->surname;
+char *get_surname(Student *student) { return student->surname; }
+Degree get_degree(Student *student) { return student->degree; }
+Course get_course(Student *student) { return student->course; }
+size_t get_semester(Student *student) { return student->semester; }
+
+// choose course and degree
+Degree which_degree() {
+	printf("Which degree is the student undertaking?\n"
+		   "\tEnter 0 to cancel\n"
+		   "\tEnter 1 to choose the Bachelor degree\n"
+		   "\tEnter 2 to choose the Master degree\n");
+	int choice = input_int_range(1, 2, 0, "degree");
+	switch (choice) {
+	case 1:
+		return Bachelor;
+	case 2:
+		return Master;
+	default:
+		return NaD;
+	}
 }
 
-Degree student_get_degree(Student *student) {
-	return student->degree;
-}
-
-Course student_get_course(Student *student) {
-	return student->course;
-}
-
-int student_get_semester(Student *student) {
-	return student->semester;
+Course which_course() {
+	int count = 0;
+	printf("Which course is the student undertaking?\n"
+		   "\tEnter 0 to cancel\n");
+	for (int course = Art; course != NaC; course++) {
+		printf("\tEnter %d to choose %s\n", count, string_course(course));
+		count++;
+	}
+	int choice = input_int_range(1, 13, 0, "course");
+	return course_map[choice];
 }

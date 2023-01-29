@@ -12,7 +12,7 @@
 #define HELPER_H
 
 // user input for int in given range (including min and max)
-int input_int_range(int min, int max, char attribute[]);
+int input_int_range(int min, int max, int cancel, char attribute[]);
 
 // user input for string
 char *input_string(char attribute[]);
