@@ -14,11 +14,11 @@
 int main(void) {
 	Student *luka = student_init();
 
-	printf("%s\n", get_name(luka));
 	printf("%zu\n", get_id(luka));
+	// printf("%s\n", get_name(luka));
+	printf("%s\n", get_surname(luka));
 	printf("%s\n", string_degree(get_degree(luka)));
 	printf("%s\n", string_course(get_course(luka)));
-	printf("%zu\n", get_semester(luka));	
+	printf("%zu\n", get_semester(luka));
 	student_destroy(luka);
-
 }

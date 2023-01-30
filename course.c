@@ -4,9 +4,9 @@
 char *string_degree(Degree degree) {
 	switch (degree) {
 	case Bachelor:
-		return "bachelor";
+		return "Bachelor";
 	case Master:
-		return "master";
+		return "Master";
 	default:
 		return "Not a Degree";
 	}
@@ -14,7 +14,7 @@ char *string_degree(Degree degree) {
 char *string_course(Course course) {
 	switch (course) {
 	case Art:
-		return "art";
+		return "Art";
 	case Biology:
 		return "Biology";
 	case Chemistry:
@@ -22,23 +22,23 @@ char *string_course(Course course) {
 	case CS:
 		return "CS";
 	case Engineering:
-		return "engineering";
+		return "Engineering";
 	case History:
-		return "history";
+		return "History";
 	case Int_Relations:
-		return "international relations";
+		return "International relations";
 	case Law:
-		return "law";
+		return "Law";
 	case Mathematics:
-		return "mathematics";
+		return "Mathematics";
 	case Medicine:
-		return "medicine";
+		return "Medicine";
 	case Philosophy:
-		return "philosophy";
+		return "Philosophy";
 	case Physics:
-		return "physics";
+		return "Physics";
 	case Psychology:
-		return "psychology";
+		return "Psychology";
 	default:
 		return "NaC";
 	}

@@ -25,8 +25,8 @@ void student_destroy(Student *student);
 
 // simple setters
 void set_id(Student *student, int ID);
-void set_name(Student *student, char n_name[]);
-void set_surname(Student *student, char n_name[]);
+void set_name(Student *student, char *n_name);
+void set_surname(Student *student, char *n_name);
 void set_degree(Student *student, Degree n_degree);
 void set_course(Student *student, Course n_course);
 void set_semester(Student *student, size_t n_semester);
